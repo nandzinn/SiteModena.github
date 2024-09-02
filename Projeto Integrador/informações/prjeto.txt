@@ -1,0 +1,9 @@
+ <p>Conecte-se conosco</p>
+        <div class="social-links">
+            <a href="https://wa.me/00000000000" target="_blank"><img src="IMG/whatsApp.png" alt="WhatsApp"></a>
+            <a href="mailto:email@exemplo.com" target="_blank"><img src="IMG/gmail.png" alt="Email"></a>
+            <a href="https://www.tiktok.com/@seu_perfil" target="_blank"><img src="IMG/tiktok.png" alt="TikTok"></a>
+            <a href="https://twitter.com/seu_perfil" target="_blank"><img src="IMG/X.avif" alt="X/Twitter"></a>
+            <a href="https://www.instagram.com/seu_perfil" target="_blank"><img src="IMG/instagram.avif"
+                    alt="Instagram"></a>
+        </div>

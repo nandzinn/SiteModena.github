@@ -1,0 +1,373 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(213, 208, 208);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 1000px;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(4, 4, 111);
+    padding: 5px;
+    margin: 0px auto;
+    top: 0;
+    z-index: 1000;
+}
+
+/*--=========================LOGO ===============================================--> */
+.Logo {
+    display: block;
+    margin: 0 auto 10px;
+    height: 100px;
+    width: 300px;
+    align-items: center;
+}
+
+nav {
+    text-align: center;
+}
+
+/*--=========================BARRA DE NAVEGAÇÃO===============================================--> */
+ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+ul li {
+    position: relative;
+    margin: 0px 15px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+}
+
+ul li a:hover::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #e5ca00;
+    border-radius: 5px;
+    bottom: 5px;
+    left: 0;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+ul li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #e5ca00;
+    border-radius: 5px;
+    bottom: 5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+ul li a:hover {
+    color: #e5ca00;
+}
+
+/* ===============================NOTICIAS DO SITE=============================== */
+main {
+    padding-top: 175px;
+}
+
+.topicoPrincipal {
+    background-color: rgb(4, 4, 111);
+    color: rgb(236, 191, 40);
+    box-shadow: rgba(0, 0, 0, 0.349) 10px 10px 10px;
+    padding: 10px;
+    margin: 30px 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 60%;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.news-item img {
+    margin-right: 20px;
+    height: 200px;
+    width: 500px;
+}
+
+.news-item h2,
+.news-item h3 {
+    margin: 0;
+    color: rgb(4, 4, 111);
+}
+
+.news-item p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/*--=========================AGENDA DE HORARIOS===============================================--> */
+#agenda {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.349) 10px 10px 10px;
+}
+
+.Agenda {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+    margin: 20px auto;
+}
+
+h4 {
+    padding: 10px;
+    text-align: center;
+    color: rgb(4, 4, 111);
+    margin-right: -100px;
+    border-radius: 1px;
+    max-width: 100%;
+}
+
+table {
+    width: 100%;
+    height: 100px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgb(4, 4, 111);
+}
+
+th {
+    background-color: rgb(4, 4, 111);
+    color: #fffbfb;
+
+}
+
+tr:hover {
+    background-color: rgb(4, 4, 111);
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+/*--===============================REDES SOCIAIS===============================================--> */
+
+footer {
+    background: rgb(4, 4, 111);
+    background-size: cover;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.icons {
+    display: flex;
+    gap: 60px;
+}
+
+.icons2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(135deg, rgb(4, 4, 111), #1e51aa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.icons2:hover {
+    background: linear-gradient(135deg, #ffe100, #bdaf31);
+    transform: scale(1.1);
+}
+
+/* ===================SLIDES DIRETORIA================== */
+.jogadores-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.jogadores {
+    width: 400px;
+    aspect-ratio: 1/0.7;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-shadow: rgba(0, 0, 0, 0.349) 5px 10px 10px;
+
+}
+
+.jogadores .content {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.jogadores .imagem-box {
+    width: 100%;
+    height: 200%;
+    border-radius: inherit;
+}
+
+.jogadores .imagem-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 90%;
+    border-radius: inherit;
+    transition: 0.5s ease-in-out;
+}
+
+.jogadores::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: inherit;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+}
+
+.jogadores:hover img {
+    filter: brightness(0.4);
+}
+
+.jogadores:hover::after {
+    opacity: 1;
+    inset: 20px;
+}
+
+.content {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.jogadores:hover .content {
+    opacity: 1;
+}
+
+#agenda {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.349) 10px 10px 10px;
+}
+
+/* ================CARROSSEL DOS PATROCINADORES==================== */
+.carousel-container {
+    width: 50%;
+    max-width: 1300px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex: 1 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-width: 230px;
+    border-radius: 30px;
+    transform: scale(2.2);
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+/* =========================CONTROLE DO CARROCEL============================ */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.prev {
+    left: 97px;
+}
+
+.next {
+    right: 100px;
+}
