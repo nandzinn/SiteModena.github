@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="sthortcut icon" href="IMG/LogoModena.png" type="image/x-icon">
+    <title>Site Modena</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(213, 208, 208);
+            font-family: Arial, Helvetica, sans-serif;
+            height: 1000px;
+
+        }
+
+        header {
+            position: fixed;
+            width: 100vw;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(4, 4, 111);
+            padding: 5px;
+            margin: 0px auto;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .Logo {
+            display: block;
+            margin: 0 auto 10px;
+            height: 100px;
+            width: 300px;
+            align-items: center;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            margin: 0px 15px;
+        }
+
+        ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 0;
+            display: block;
+        }
+
+        ul li a:hover::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #e5ca00;
+            border-radius: 5px;
+            bottom: 5px;
+            left: 0;
+            transform: scaleX(1);
+            transition: transform 0.3s ease;
+        }
+
+        ul li a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #e5ca00;
+            border-radius: 5px;
+            bottom: 5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        ul li a:hover {
+            color: #e5ca00;
+        }
+
+        main {
+            padding-top: 175px;
+        }
+
+        .topicoPrincipal {
+            background-color: rgb(4, 4, 111);
+            color: rgb(236, 191, 40);
+            padding: 10px;
+            margin: 30px 200px;
+            text-align: center;
+        }
+
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 60%;
+            text-align: justify;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .news-item img {
+            margin-right: 20px;
+            height: 200px;
+            width: 500px;
+        }
+
+        .news-item h2,
+        .news-item h3 {
+            margin: 0;
+            color: rgb(4, 4, 111);
+        }
+
+        .news-item p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+
+        /* ---------------PARTE DA AGENDA--------------- */
+        #agenda {
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.349) 10px 10px 10px;
+        }
+
+        .Agenda {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 1200px;
+            margin: 20px auto;
+        }
+
+        h4 {
+            padding: 10px;
+            text-align: center;
+            color: rgb(4, 4, 111);
+            margin-right: -100px;
+            border-radius: 1px;
+            max-width: 100%;
+        }
+
+        table {
+            width: 100%;
+            height: 100px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid rgb(4, 4, 111);
+        }
+
+        th {
+            background-color: rgb(4, 4, 111);
+            color: #fffbfb;
+
+        }
+
+        tr:hover {
+            background-color: rgb(4, 4, 111);
+            color: #ffffff;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* --------------FIM DA AGENDA----------------- */
+
+
+
+        /* Controles */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+
+        footer {
+            background: rgb(4, 4, 111);
+            background-size: cover;
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .icons {
+            display: flex;
+            gap: 60px;
+        }
+
+        .icons2 {
+
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(135deg, rgb(4, 4, 111), #1e51aa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 24px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .icons2:hover {
+            background: linear-gradient(135deg, #ffe100, #bdaf31);
+            transform: scale(1.1);
+        }
+
+        /* ===================INICIO SLIDES JOGADORES================== */
+        .jogadores-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .jogadores {
+            width: 400px;
+            aspect-ratio: 1/0.7;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            box-shadow: rgba(0, 0, 0, 0.349) 5px 10px 10px;
+
+        }
+
+        .jogadores .content {
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+
+            /* display: flex; */
+        }
+
+        .jogadores .imagem-box {
+            width: 100%;
+            height: 200%;
+            border-radius: inherit;
+        }
+
+        .jogadores .imagem-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 90%;
+            border-radius: inherit;
+            transition: 0.5s ease-in-out;
+        }
+
+        .jogadores::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 2px solid white;
+            border-radius: inherit;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+
+        .jogadores:hover img {
+            filter: brightness(0.4);
+        }
+
+        .jogadores:hover::after {
+            opacity: 1;
+            inset: 20px;
+        }
+
+        .content {
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .jogadores:hover .content {
+            opacity: 1;
+        }
+
+        #agenda {
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.349) 10px 10px 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <img class="Logo" src="IMG/LogoModena.png" alt="">
+        <nav>
+            <hr>
+            <ul>
+                <li><a href="#noticias" class="menu">Notícias e Atualizações</a></li>
+                <li><a href="#agenda" class="menu">Agenda de Jogos</a></li>
+                <li><a href="#redes-sociais" class="menu">Redes Sociais</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+        <section id="noticias" class="topicoPrincipal">
+            <h1>Notícias e Atualizações</h1>
+        </section>
+
+        <div class="news-container">
+            <div class="news-item">
+                <img class="Noticia1" src="IMG/CamisaAzul.png.jpg" alt="">
+                <div>
+                    <h2 class="titulo">Humaitá Lança Novas Camisas para a Temporada:
+                        Tradição e Inovação em um Só Uniforme</h2>
+                    <p>O Modena Humaitá, time que vem conquistando cada vez mais fãs,
+                        acaba de lançar suas novas camisas para a temporada.
+                        Com um design que alia tradição e inovação,
+                        as novas peças prometem
+                        encantar tanto os torcedores de longa data quanto os novos apaixonados pelo clube. </p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="Noticia2" src="IMG/CamisaRosa.jpg" alt="">
+                <div>
+                    <h2 class="titulo2">Humaitá Lança Novas Camisas para a Temporada:
+                        Tradição e Inovação em um Só Uniforme</h2>
+                    <p>O Modena Humaitá, time que vem conquistando cada vez mais fãs,
+                        acaba de lançar suas novas camisas para a temporada.
+                        Com um design que alia tradição e inovação,
+                        as novas peças prometem
+                        encantar tanto os torcedores de longa data quanto os novos apaixonados pelo clube. </p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="Noticia3" src="IMG/CamisaAzul.png.jpg" alt="">
+                <div>
+                    <h2 class="titulo3">Humaitá Lança Novas Camisas para a Temporada:
+                        Tradição e Inovação em um Só Uniforme</h2>
+                    <p>O Modena Humaitá, time que vem conquistando cada vez mais fãs,
+                        acaba de lançar suas novas camisas para a temporada.
+                        Com um design que alia tradição e inovação,
+                        as novas peças prometem
+                        encantar tanto os torcedores de longa data quanto os novos apaixonados pelo clube. </p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="Noticia4" src="IMG/CamisaRosa.jpg" alt="">
+                <div>
+                    <h2 class="titulo4">Humaitá Lança Novas Camisas para a Temporada:
+                        Tradição e Inovação em um Só Uniforme</h2>
+                    <p>O Modena Humaitá, time que vem conquistando cada vez mais fãs,
+                        acaba de lançar suas novas camisas para a temporada.
+                        Com um design que alia tradição e inovação,
+                        as novas peças prometem
+                        encantar tanto os torcedores de longa data quanto os novos apaixonados pelo clube. </p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="Noticia5" src="IMG/CamisaAzul.png.jpg" alt="">
+                <div>
+                    <h2 class="titulo5">Humaitá Lança Novas Camisas para a Temporada:
+                        Tradição e Inovação em um Só Uniforme</h28>
+                        <p>O Modena Humaitá, time que vem conquistando cada vez mais fãs,
+                            acaba de lançar suas novas camisas para a temporada.
+                            Com um design que alia tradição e inovação,
+                            as novas peças prometem
+                            encantar tanto os torcedores de longa data quanto os novos apaixonados pelo clube. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jogadores-container">
+            <div class="jogadores">
+                <div class="imagem-box">
+                    <img src="IMG/Imagem do WhatsApp de 2024-08-30 à(s) 10.56.01_997c46fd.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <h1 class="jogador">Natan Felix</h1>
+                    <p>Ponteiro</p>
+                </div>
+            </div>
+
+            <div class="jogadores">
+                <div class="imagem-box">
+                    <img src="IMG/Imagem do WhatsApp de 2024-08-30 à(s) 10.56.02_19697705.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <h1 class="jogador">Tiago Leite</h1>
+                    <p>Levantador</p>
+                </div>
+            </div>
+
+            <div class="jogadores">
+                <div class="imagem-box">
+                    <img src="IMG/Leco.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <h1 class="jogador">Leandro Peres</h1>
+                    <p>Líbero</p>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="agenda" class="Agenda">
+            <h4>Agenda de Jogos</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Horario</th>
+                        <th>Jogos/Treinos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda-feira</td>
+                        <td>19:00 às 21:00</td>
+                        <td>Jogo</td>
+                    </tr>
+                    <tr>
+                        <td>Terça-feira</td>
+                        <td>Descanso</td>
+                        <td>Descanso</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta-feira</td>
+                        <td>19:00 às 21:00</td>
+                        <td>Treino</td>
+                    </tr>
+                    <tr>
+                        <td>Quinta-feira</td>
+                        <td>Descanso</td>
+                        <td>Descanso</td>
+                    </tr>
+                    <tr>
+                        <td>Sexta-feira</td>
+                        <td>17:00 às 19:00</td>
+                        <td>Treino</td>
+                    </tr>
+                    <tr>
+                        <td>Sábado</td>
+                        <td>14:00 às 19:00</td>
+                        <td>Treino</td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td>Descanso</td>
+                        <td>Descanso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+        <div class="icons" id="redes-sociais">
+            <a href="https://www.instagram.com/modenahmt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="icons2"><i class="fa-brands fa-instagram"></i></a>
+            <a href="" class="icons2"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="" class="icons2"><i class="fa-solid fa-at"></i></a>
+            <a href="" class="icons2"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.tiktok.com/@modenahmt" class="icons2"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
